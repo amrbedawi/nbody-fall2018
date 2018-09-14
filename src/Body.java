@@ -138,4 +138,8 @@ public class Body {
 		myXPos = nx; 
 		myYPos = ny; 
 	}
+	
+	public void draw() {
+		StdDraw.picture(myXPos, myYPos, "images/"+myFileName); 
+	}
 }
