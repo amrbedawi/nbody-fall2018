@@ -122,4 +122,19 @@ public class Body {
 		}
 		return netYForce; 
 	}
+	
+	public void update (double deltaT, double xforce, double yforce) {
+		double ax = xforce / myMass; 
+		double ay = yforce / myMass; 
+		double nvx = myXVel + deltaT * ax; 
+		double nvy = myYVel + deltaT * ay; 
+		double nx = myXPos + deltaT * nvx; 
+		double ny = myYPos + deltaT * nvy; 
+		
+		myXVel = nvx;
+		myYVel = nvy;
+		myXPos = nx; 
+		myYPos = ny; 
+
+	}
 }
