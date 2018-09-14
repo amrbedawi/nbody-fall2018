@@ -123,6 +123,8 @@ public class Body {
 		return netYForce; 
 	}
 	
+	/* updates the instance variables for the body every @param deltaT
+	 */
 	public void update (double deltaT, double xforce, double yforce) {
 		double ax = xforce / myMass; 
 		double ay = yforce / myMass; 
@@ -135,6 +137,5 @@ public class Body {
 		myYVel = nvy;
 		myXPos = nx; 
 		myYPos = ny; 
-
 	}
 }
