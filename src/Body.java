@@ -42,7 +42,7 @@ public class Body {
 	public double getX() {
 		return myXPos;
 	}
-
+	
 	public double getY() {
 		return myYPos;
 	}
@@ -138,7 +138,7 @@ public class Body {
 		myXPos = nx; 
 		myYPos = ny; 
 	}
-	
+
 	public void draw() {
 		StdDraw.picture(myXPos, myYPos, "images/"+myFileName); 
 	}

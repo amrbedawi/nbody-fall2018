@@ -20,14 +20,11 @@ public class NBody {
 	 */
 	public static double readRadius(String fname) throws FileNotFoundException  {
 		Scanner s = new Scanner(new File(fname));
-	
 		// TODO: read values at beginning of file to
 		s.nextInt(); 
 		double radius = s.nextDouble(); 
 		// find the radius
-		
 		s.close();
-		
 		// TODO: return radius read
 		return radius;	
 	}
@@ -44,11 +41,9 @@ public class NBody {
 			Scanner s = new Scanner(new File(fname));
 			
 			// TODO: read # bodies, create array, ignore radius
-			
 			int nb = s.nextInt(); // # bodies to be read
 			double unusedRadius = s.nextDouble(); 
 			Body[] bodies = new Body[nb];
-			
 			for(int k=0; k < nb; k++) {
 				double xp = s.nextDouble();
 				double yp = s.nextDouble();
@@ -61,29 +56,23 @@ public class NBody {
 				// TODO: read data for each body
 				// construct new body object and add to array
 			}
-			
 			s.close();
-			
 			// TODO: return array of body objects read
 			return bodies;
 	}
 	public static void main(String[] args) throws FileNotFoundException{
 		double totalTime = 157788000.0;
 		double dt = 25000.0;
-		
 		String fname= "./data/planets.txt";
 		if (args.length > 2) {
 			totalTime = Double.parseDouble(args[0]);
 			dt = Double.parseDouble(args[1]);
 			fname = args[2];
 		}	
-		
 		Body[] bodies = readBodies(fname);
 		double radius = readRadius(fname);
-		
 		StdDraw.setScale(-radius, radius);
 		StdDraw.picture(0,0,"images/starfield.jpg");
-	
 		for(double t = 0.0; t < totalTime; t += dt) {
 			
 			// TODO: create double arrays xforces and yforces
@@ -103,14 +92,11 @@ public class NBody {
 			for (int k = 0; k < bodies.length; ++k) {
 				bodies[k].update(dt, xforces[k], yforces[k]);
 			}
-			
 			StdDraw.picture(0,0,"images/starfield.jpg");
-			
 			// TODO: loop over all bodies and call draw on each one
 			for (Body b: bodies) {
 				b.draw(); 
 			}
-			
 			StdDraw.show(10);
 		}
 		
